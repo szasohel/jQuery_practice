@@ -163,5 +163,91 @@ $(function() {
 	 // the first one
 	 $("li").not(":first").css("background-color","rgba(180,180,30,.8)");
 
+	 // ********* Adding New element to the DOM ***************//
+	// ********************************************************//
+
+	 // append() add a new item as a last item to the selected
+	 // element. 
+	 $("ul ui:first").append("<li>I am the last child</li>");
+
+	 // or we can write
+
+	 $("<li>I am the last child</li>").appendTo($("ul ui:first"));
+
+	 // append() add a new item as a first item to the selected
+	 // element. 
+	 $("ul ui:first").preppend("<li>I am the last child</li>");
+
+	 // or we can write
+
+	 $("<li>I am the last child</li>").preppendTo($("ul ui:first"));
+
+	 // add new element after selected element
+
+	 $(".red-box").after('<div class="red-box">red-box</div>');
+
+	 // add new element before selected element
+
+	 $(".red-box").before('<div class="red-box">red-box</div>');
+
+	 // or we can pass a function
+
+	 $(".red-box").before(function(){
+	 	return '<div class="red-box">red-box</div>';
+	 });
+
+	 // or we can pass a function
+	 // instead of writing the whole tag we can pass
+	 // class name also
+
+	 $(".red-box").before(function(){
+	 	return '.red-box';
+	 });
+
+	 // *************** Replacing element DOM *****************//
+	// ********************************************************//
+
+	// replace one element with another element
+
+	$(".red-box").replaceWith(function(){
+	 	return '.red-box';
+	 });
+
+	// or
+	// in this case blue-box will move to 
+	// the position of red-box
+	$(".red-box").replaceWith(".blue-box");
+
+	// or
+
+	$(".red-box").replaceWith("<div class=\"red-box\">red-box</div>");
+
+
+	// ****************** removing element DOM ****************//
+	// ********************************************************//
+
+	// removes all list item from the DOM
+	$("li").remove();
+
+	// if we assign a removed element to a variable then
+	// we can append the element later in the DOM
+
+	var removedItem = $("li").remove();
+	$("p").append(removedItem);
+
+	// but the problem is all the event handler associate
+	// with the element will be lost. we have another 
+	// function for removing elements from the DOM which 
+	// can solve the problem
+
+	var detachedItem = $("li").detach();
+	$("p").append(detachedItem);
+
+	// there is another function called empty()
+	// it removes the child elements as well contents 
+	// of the selected tag
+
+	$("p").empty();
+
 
 });
