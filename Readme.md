@@ -1,4 +1,4 @@
-$(function() {
+```$(function() {
 	// ************** Fading *************************//
 
 	// $(".class-name").fadeOut(time in ms to fadeOut);
@@ -293,4 +293,4 @@ $(function() {
 	rangeInput.val();
 
 
-});
+});```
